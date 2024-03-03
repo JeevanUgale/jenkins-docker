@@ -14,12 +14,13 @@ pipeline {
         //}
       stage('docker login') { 
             steps {
-                //script {
-                  //withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    sh 'sudo docker login'
-                  //}
+                script {
+                  withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh 'sudo docker login -u $DOCKER_USERNAME -P $DOCKER_PASSWORD'
+                  }
                 }
             }
+      }
       stage('build docker image') { 
             steps {
                 sh 'sudo docker ps'
