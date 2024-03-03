@@ -21,15 +21,14 @@ pipeline {
                 script {
                   withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-                    sh 'sudo docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
                   }
                 }
             }
         }
       stage('build docker image') { 
             steps {
-                sh 'sudo docker ps'
-                sh 'sudo docker images'
+                sh 'docker ps'
+                sh 'docker images'
             }
         }
     }
