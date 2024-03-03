@@ -20,7 +20,6 @@ pipeline {
                   //}
                 }
             }
-        }
       stage('build docker image') { 
             steps {
                 sh 'sudo docker ps'
