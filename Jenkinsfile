@@ -7,11 +7,11 @@ pipeline {
     }
     stages {
         
-        stage('mvn test and build') { 
-            steps {
-                sh 'mvn clean package'
-            }
-        }
+        //stage('mvn test and build') { 
+         //   steps {
+           //     sh 'mvn clean package'
+            //}
+        //}
       stage('docker login') { 
             steps {
                 script {
