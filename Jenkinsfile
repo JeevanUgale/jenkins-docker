@@ -16,7 +16,7 @@ pipeline {
            //     sh 'mvn clean package'
             //}
         //}
-        stage {
+        stage('docker login') {
             steps {
                 script {
                   withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
